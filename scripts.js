@@ -107,10 +107,10 @@ function playGame(){
     }
 //Score the game after the loop ends
     if (computerScore === 5){
-        console.log(`Game Over! You lose. Your score verus computer: ` + playerScore + `:` + computerScore);
+        console.log(`Game Over! You lose. Your score versus computer: ` + playerScore + `:` + computerScore);
         }
     else if (playerScore === 5){
-        console.log(`Game Over! You Win. Your score verus computer: ` + playerScore + `:` + computerScore);
+        console.log(`Game Over! You Win. Your score versus computer: ` + playerScore + `:` + computerScore);
         };
 // reset scores for new game
     computerScore = 0;
