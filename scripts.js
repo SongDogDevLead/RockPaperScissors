@@ -1,19 +1,9 @@
-
-// make score variables
-let playerScore = 0;
-let computerScore = 0;
-
-//create a function for scoring rounds
-function playRound(playerMove, computerMove){
-
 // Create a variable to store a generated number
 let numberGen = 0;
 // Create a Variable to store the computer choice
 let computerMove;
-
 // Find the computer choice
 function getComputerChoice () {
-
 // Generate a random number between 0 and 1
 numberGen = Math.random();
 
@@ -33,60 +23,94 @@ return computerMove;
 let playerInput;
 let playerMove;
 
+
+
+//Create function to recieve human input
+function getHumanChoice(){
 // Ask for and log Player choice
 // Create a Prompt for player input
-
 playerInput = window.prompt(`What's your move?`, `Rock, Paper, or Scissors?`);
 let normalizedInput = playerInput.toLowerCase();
-
-// Parse the input into a valid move
-function getHumanChoice(){
+    
 if (normalizedInput === `rock`) {playerMove = `Rock`}
 else if (normalizedInput === `paper`) {playerMove = `Paper`}
 else if (normalizedInput === `scissors`) {playerMove = `Scissors`}
 else {playerMove =`Invalid Move`}
-
 // return player move
 return playerMove;};
 
+// make score variables
+let playerScore = 0;
+let computerScore = 0;
+//create a function for scoring rounds
+function playRound(){
+computerMove = getComputerChoice();
+playerMove = getHumanChoice();
 // Assign scoring parameters, log output and tally score
     if(playerMove === `Rock` && computerMove === `Rock`) {
-        console.log(`Its a tie! Rock vs Rock.`)}
+        console.log(`Its a tie! Rock vs Rock.`)
+    }
     else if(playerMove === `Rock` && computerMove === `Paper`){
         console.log(`Computer wins! Paper beats Rock!`);
-         if (computerScore < 5) {computerScore++}}
+         if (computerScore < 5) {
+            computerScore++
+        }
+    }
     else if(playerMove === `Rock` && computerMove === `Scissors`){
         console.log(`You win! Rock beats Scissors!`);
-        if (playerScore < 5) {playerScore++}}
+        if (playerScore < 5) {
+            playerScore++
+        }
+    }
    else if (playerMove === `Paper` && computerMove === `Rock`) {
-    console.log(`You win! Paper beats Rock!`);
-    if (playerScore < 5) {playerScore++}}
+        console.log(`You win! Paper beats Rock!`);
+        if (playerScore < 5) {
+            playerScore++
+        }
+    }
    else if(playerMove === `Paper` && computerMove === `Paper`){
-    console.log(`Its a tie! Paper vs Paper.`)}
+        console.log(`Its a tie! Paper vs Paper.`)
+    }
    else if(playerMove === `Paper` && computerMove === `Scissors`){
-    console.log(`Computer wins! Scissors beats Paper!`); 
-    if (computerScore < 5) {computerScore++}}
+        console.log(`Computer wins! Scissors beats Paper!`); 
+        if (computerScore < 5) {
+            computerScore++
+        }
+}
    else if(playerMove === `Scissors` && computerMove === `Rock`) {
-    console.log(`Computer wins! Rock beats Scissors!`); 
-    if (computerScore < 5) {computerScore++}}
+        console.log(`Computer wins! Rock beats Scissors!`); 
+        if (computerScore < 5) {
+            computerScore++
+        }
+    }
     else if(playerMove === `Scissors` && computerMove === `Paper`){
         console.log(`You win! Scissors beats Paper!`); 
-        if (playerScore < 5) {playerScore++}}
+        if (playerScore < 5) {
+            playerScore++
+        }
+    }
     else if(playerMove === `Scissors` && computerMove === `Scissors`){
-        console.log(`Its a tie! Scissors vs Scissors!`)}
-    else{console.log(`Invalid Input`)}
-}
+        console.log(`Its a tie! Scissors vs Scissors!`)
+    }
+    else{
+        console.log(`Invalid Input`)
+    };
+    }
 
 function playGame(){
-playRound(playerMove, computerMove);
-if (computerScore === 5){
-    console.log(`Game Over! You lose.`);
+    while (playerScore < 5 && computerScore <5){
+    console.log(`Next Round`);
+    playRound();
+    }
+    if (computerScore === 5){
+        console.log(`Game Over! You lose. Your score verus computer: ` + playerScore + `:` + computerScore);
+        }
+    else if (playerScore === 5){
+        console.log(`Game Over! You Win. Your score verus computer: ` + playerScore + `:` + computerScore);
+        };
     computerScore = 0;
-    playerScore = 0;}
-else if (playerScore === 5){
-    console.log(`Game Over! You Win. Your score verus computer: ` + playerScore + `/` + computerScore);
-    computerScore = 0;
-    playerScore = 0;}
-else{console.log(`Next Round`);
-}
-}
+    playerScore = 0;
+    }
+
+
+playGame();
