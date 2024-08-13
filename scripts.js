@@ -96,21 +96,26 @@ playerMove = getHumanChoice();
         console.log(`Invalid Input`)
     };
     }
-
+// Create the Game function to put it all together
 function playGame(){
+// Make a while loop to repeat the game until someone hits a score of 5
     while (playerScore < 5 && computerScore <5){
+// Create an next round indication message
     console.log(`Next Round`);
+// call playRound function at the end of the loop as long as the score is not exceeded
     playRound();
     }
+//Score the game after the loop ends
     if (computerScore === 5){
         console.log(`Game Over! You lose. Your score verus computer: ` + playerScore + `:` + computerScore);
         }
     else if (playerScore === 5){
         console.log(`Game Over! You Win. Your score verus computer: ` + playerScore + `:` + computerScore);
         };
+// reset scores for new game
     computerScore = 0;
     playerScore = 0;
     }
 
-
+//call playGame
 playGame();
