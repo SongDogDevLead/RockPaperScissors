@@ -1,0 +1,66 @@
+body {
+    margin-right: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameWindow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.playBox {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 75vw;
+    height: 33vh;
+}
+
+.move {
+    font-size: x-large;
+}
+
+.scoreBox {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items:center;
+    width: 25vw;
+    height: 15vh;
+    margin-right: 25px;
+}
+
+.scoreOwners {
+    display: flex;
+    justify-content:space-between;
+    width: 25vw;
+}
+
+
+.scorePoints {
+    display: flex;
+    justify-content:space-between;
+    width: 25vw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    
+}
+
+button {
+    margin-left: 15vw;
+    padding: 8px 12px;
+}
+.reset{
+    margin-left: 15vw;
+}
