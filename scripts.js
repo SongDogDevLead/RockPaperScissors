@@ -1,3 +1,4 @@
+
 // Create a variable to store a generated number
 let numberGen = 0;
 // Create a Variable to store the computer choice
