@@ -27,6 +27,10 @@ h1 {
     font-size: x-large;
 }
 
+.results {
+    text-align: center;
+}
+
 .scoreBox {
     display: flex;
     flex-flow: column;
