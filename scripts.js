@@ -112,16 +112,16 @@ computerMove = getComputerChoice();
     
 
     if (computerScore === 5){
-        resultText += " Game Over! You lose. Your score versus computer: " + playerScore + ":" + computerScore;
+        resultText += "<br>Game Over! You lose. Your score versus computer: " + playerScore + ":" + computerScore;
         computerScore = 0;
         playerScore = 0;
     }
     else if (playerScore === 5){
-        resultText += " Game Over! You Win. Your score versus computer: " + playerScore + ":" + computerScore;
+        resultText += "<br>Game Over! You Win. Your score versus computer: " + playerScore + ":" + computerScore;
         computerScore = 0;
         playerScore = 0;
 };
-document.querySelector(".results").textContent = resultText
+document.querySelector(".results").innerHTML = resultText
 document.querySelector(".playerPoints").textContent = playerScore
 document.querySelector(".computerPoints").textContent = computerScore
 }
