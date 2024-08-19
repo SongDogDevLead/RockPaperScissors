@@ -1,14 +1,14 @@
 
-// Create a variable to store a generated number
+
 let numberGen = 0;
-// Create a Variable to store the computer choice
+
 let computerMove;
-// Find the computer choice
+
 function getComputerChoice () {
-// Generate a random number between 0 and 1
+
 numberGen = Math.random();
 
-// Set each variable to correspond to a range of results split evenly between the options
+
 if (numberGen > .33 && numberGen < .67) {
     computerMove = "Rock"
 }
@@ -16,115 +16,121 @@ else if (numberGen < .34) {
     computerMove = "Paper"
 }
 else {computerMove = "Scissors"};
-// Return the proper string for the generated value
+
 return computerMove;
 };
 
-//Create variable to store player input and player move
-let playerInput;
-let playerMove;
+let playerMove = "";
 
 const rock = document.querySelector(".rock")
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const reset = document.querySelector(".reset");
-
+let resultText;
+let playerScore = 0;
+let computerScore = 0;
 
 rock.addEventListener('click', moveRock);
 paper.addEventListener('click', movePaper);
 scissors.addEventListener('click', moveScissors);
-reset.addEventListener('click', resetGame);
+reset.addEventListener('click', resetRound);
 
 function moveRock(){
  playerMove = "Rock";
- playGame();
+ playRound();
 }
 
 function movePaper(){
     playerMove = "Paper";
-    playGame();
+    playRound();
 }
 
 function moveScissors(){
     playerMove = "Scissors";
-    playGame();
+    playRound();
 }
 
-function resetGame(){
+function resetRound(){
     playerScore = 0;
     computerScore = 0;
-    document.querySelector(".move").textContent = "Choose Your Move";
-    document.querySelector(".results").textContent = "Let's Play!"
+    document.querySelector(".results").textContent = "Let's Play!";
+    document.querySelector(".playerPoints").textContent = playerScore;
+    document.querySelector(".computerPoints").textContent = computerScore;
+    
 }
 
-let playerScore = 0;
-let computerScore = 0;
+
 
 function playRound(){
 computerMove = getComputerChoice();
 
     if(playerMove === "Rock" && computerMove === "Rock") {
-        document.querySelector(".results").textContent = "Its a tie! Rock vs Rock.";
+        resultText = "Its a tie! Rock vs Rock.";
     }
     else if(playerMove === "Rock" && computerMove === "Paper"){
-        document.querySelector(".results").textContent = "Computer wins! Paper beats Rock!";
+        resultText = "Computer wins! Paper beats Rock!";
          if (computerScore < 5) {
             computerScore++
         }
     }
     else if(playerMove === "Rock" && computerMove === "Scissors"){
-        document.querySelector(".results").textContent = "You win! Rock beats Scissors!";
+        resultText = "You win! Rock beats Scissors!";
         if (playerScore < 5) {
             playerScore++
         }
     }
    else if (playerMove === "Paper" && computerMove === "Rock") {
-       document.querySelector(".results").textContent = "You win! Paper beats Rock!";
+       resultText = "You win! Paper beats Rock!";
         if (playerScore < 5) {
             playerScore++
         }
     }
    else if(playerMove === "Paper" && computerMove === "Paper"){
-        document.querySelector(".results").textContent = "Its a tie! Paper vs Paper.";
+    resultText = "Its a tie! Paper vs Paper.";
     }
    else if(playerMove === "Paper" && computerMove === "Scissors"){
-        document.querySelector(".results").textContent = "Computer wins! Scissors beats Paper!"; 
+    resultText = "Computer wins! Scissors beats Paper!"; 
         if (computerScore < 5) {
             computerScore++
         }
 }
    else if(playerMove === "Scissors" && computerMove === "Rock") {
-        document.querySelector(".results").textContent = "Computer wins! Rock beats Scissors!"; 
+    resultText = "Computer wins! Rock beats Scissors!"; 
         if (computerScore < 5) {
             computerScore++
         }
     }
     else if(playerMove === "Scissors" && computerMove === "Paper"){
-        document.querySelector(".results").textContent = "You win! Scissors beats Paper!"; 
+        resultText = "You win! Scissors beats Paper!"; 
         if (playerScore < 5) {
             playerScore++
         }
     }
     else if(playerMove === "Scissors" && computerMove === "Scissors"){
-        document.querySelector(".results").textContent = "Its a tie! Scissors vs Scissors!"
+        resultText = "Its a tie! Scissors vs Scissors!"
     }
-    document.querySelector(".playerPoints").textContent = playerScore
-    document.querySelector(".computerPoints").textContent = computerScore
-}
-
-function playGame(){
-
-    playRound();
-
+    
 
     if (computerScore === 5){
-        document.querySelector(".results").textContent = "Game Over! You lose. Your score versus computer: " + playerScore + ":" + computerScore;
-        }
-    else if (playerScore === 5){
-        document.querySelector(".results").textContent = "Game Over! You Win. Your score versus computer: " + playerScore + ":" + computerScore;
-        };
-
-    computerScore = 0;
-    playerScore = 0;
+        resultText += " Game Over! You lose. Your score versus computer: " + playerScore + ":" + computerScore;
+        computerScore = 0;
+        playerScore = 0;
     }
+    else if (playerScore === 5){
+        resultText += " Game Over! You Win. Your score versus computer: " + playerScore + ":" + computerScore;
+        computerScore = 0;
+        playerScore = 0;
+};
+document.querySelector(".results").textContent = resultText
+document.querySelector(".playerPoints").textContent = playerScore
+document.querySelector(".computerPoints").textContent = computerScore
+}
+
+
+
+
+    
+
+    
+
 
