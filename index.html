@@ -4,30 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div>
         <h1>
-            Rock Paper Scissor
+            Rock-Paper-Scissors
         </h1>
     </div>
-    <div>
-        <h2>Round Results!</h2>
-        <p></p>
-    </div>
-    <div>
+    <div class="gameWindow">
+        <div class="playBox">
+            <h2 class="results">Lets Play!</h2>
+            <p class="move">Choose Your Move</p>
+        </div>
         <div>
-            <h2>Score</h2>
-            <p></p>
-            <h3>Player/Computer</h3>
+            <div class="scoreBox">
+                <h2>Score</h2>
+                <div class="scoreOwners">
+                    <h3 class="scoreOwner">Computer:</h3>
+                    <h3 class="scoreOwner">Player:</h3>
+                </div>
+                <div class="scorePoints">
+                    <h3 class="playerPoints">0</h3>
+                    <h3 class="computerPoints">0</h3>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
-        <button>Reset Game</button>
+    <div class="buttons">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+        <button class="reset">Reset Game</button>
     </div>
-    <script src="scripts.js"></script>
+    <script src="scriptsNULL.js"></script>
 </body>
 </html>
